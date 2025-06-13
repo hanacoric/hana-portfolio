@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <main class="content">
+        <h1>Hello, I'm Hana</h1>
+        <section class="about">
+          <!-- Your content here -->
+        </section>
+      </main>
+      <div class="eye-container" id="eye-container"></div>
+    </div>
+
+    <!-- Import map for Three.js -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.132.2/examples/jsm/"
+        }
+      }
+    </script>
+
+    <!-- Your scripts -->
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>

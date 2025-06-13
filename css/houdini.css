@@ -1,0 +1,15 @@
+@supports (background: paint(eyeBackgroundEffect)) {
+  .eye-container {
+    /* This will be applied if Houdini is supported */
+    animation: houdiniFade 2s infinite alternate;
+  }
+}
+
+@keyframes houdiniFade {
+  from {
+    --houdini-effect: 0;
+  }
+  to {
+    --houdini-effect: 1;
+  }
+}
