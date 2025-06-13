@@ -1,15 +1,18 @@
-@supports (background: paint(eyeBackgroundEffect)) {
-  .eye-container {
-    /* This will be applied if Houdini is supported */
-    animation: houdiniFade 2s infinite alternate;
-  }
+.animated-heading,
+.animated-heading .name,
+.subtitle {
+  --progress: 0;
+  --fill-color: #9333ea;
+  background: paint(fill-text);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgb(255, 255, 255);
+  transition: --progress 0.6s ease-in-out;
+  display: inline-block;
 }
 
-@keyframes houdiniFade {
-  from {
-    --houdini-effect: 0;
-  }
-  to {
-    --houdini-effect: 1;
-  }
+.intro:hover .animated-heading,
+.intro:hover .animated-heading .name,
+.intro:hover .subtitle {
+  --progress: 1;
 }

@@ -98,7 +98,7 @@ export class Eye {
     requestAnimationFrame(() => this.animate());
 
     if (this.eyeModel) {
-      const sensitivity = 0.4;
+      const sensitivity = 0.5;
 
       const target = new THREE.Vector3(
         this.mouse.x * sensitivity,
