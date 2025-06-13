@@ -9,8 +9,9 @@ export class Eye {
       return;
     }
 
-    this.mouseX = 0;
-    this.mouseY = 0;
+    this.makeContainerCircular();
+
+    this.mouse = new THREE.Vector2(0, 0);
     this.eyeModel = null;
 
     this.initScene();
@@ -19,32 +20,41 @@ export class Eye {
     this.animate();
   }
 
+  makeContainerCircular() {
+    this.container.style.borderRadius = "50%";
+    this.container.style.overflow = "hidden";
+  }
+
   initScene() {
     this.scene = new THREE.Scene();
 
     this.camera = new THREE.PerspectiveCamera(
-      45,
+      40,
       this.container.clientWidth / this.container.clientHeight,
       0.1,
       1000
     );
-    this.camera.position.z = 5;
+    this.camera.position.z = 1.5;
 
-    this.renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    this.renderer = new THREE.WebGLRenderer({
+      alpha: true,
+      antialias: true,
+      preserveDrawingBuffer: true,
+    });
     this.renderer.setSize(
       this.container.clientWidth,
       this.container.clientHeight
     );
     this.renderer.setPixelRatio(window.devicePixelRatio);
+    this.renderer.domElement.style.display = "block";
     this.container.appendChild(this.renderer.domElement);
 
-    // Ambient + directional lighting
-    const ambient = new THREE.AmbientLight(0xffffff, 0.5);
-    this.scene.add(ambient);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    this.scene.add(ambientLight);
 
-    const directional = new THREE.DirectionalLight(0xffffff, 1.5);
-    directional.position.set(5, 5, 5);
-    this.scene.add(directional);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    directionalLight.position.set(3, 3, 3);
+    this.scene.add(directionalLight);
   }
 
   loadModel() {
@@ -53,26 +63,24 @@ export class Eye {
       "./models/eye.glb",
       (gltf) => {
         this.eyeModel = gltf.scene;
-
-        // Reset transform
+        this.eyeModel.traverse((child) => console.log(child.name));
+        this.eyeModel.scale.set(0.2, 0.2, 0.2);
+        this.eyeModel.rotation.set(0, 0, 0);
         this.eyeModel.position.set(0, 0, 0);
-        this.eyeModel.scale.set(1.5, 1.5, 1.5);
-        this.eyeModel.rotation.set(0, Math.PI, 0);
-
         this.scene.add(this.eyeModel);
-        console.log("✅ Eye model loaded:", this.eyeModel);
+        console.log("3D eye model loaded successfully");
       },
       undefined,
       (error) => {
-        console.error("❌ Failed to load eye.glb:", error);
+        console.error("Error loading eye.glb:", error);
       }
     );
   }
 
   addEvents() {
     window.addEventListener("mousemove", (e) => {
-      this.mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
-      this.mouseY = -(e.clientY / window.innerHeight - 0.5) * 2;
+      this.mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+      this.mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
     });
 
     window.addEventListener("resize", () => {
@@ -90,7 +98,15 @@ export class Eye {
     requestAnimationFrame(() => this.animate());
 
     if (this.eyeModel) {
-      this.eyeModel.lookAt(this.mouseX * 5, this.mouseY * 5, 0);
+      const sensitivity = 0.4;
+
+      const target = new THREE.Vector3(
+        this.mouse.x * sensitivity,
+        this.mouse.y * sensitivity,
+        this.camera.position.z - 1
+      );
+
+      this.eyeModel.lookAt(target);
     }
 
     this.renderer.render(this.scene, this.camera);
