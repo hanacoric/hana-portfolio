@@ -1,4 +1,3 @@
-// File: js/stars-background.js
 import * as THREE from "three";
 
 export function createStars(scene) {

@@ -1,10 +1,10 @@
 body {
   margin: 0;
-  padding: 0;
+  padding: 0 100px;
   background-color: #000;
   color: white;
   font-family: "Arial", sans-serif;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .container {
@@ -12,9 +12,8 @@ body {
   justify-content: space-between;
   align-items: center;
   height: 100vh;
-  padding: 0 80px;
   box-sizing: border-box;
-  gap: 3rem;
+  gap: 2rem;
 }
 
 .intro {
@@ -22,15 +21,20 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1.5rem;
+  gap: 2rem;
   max-width: 600px;
 }
 
 .eye-container {
+  position: fixed;
+  top: 50%;
+  right: 80px;
+  transform: translateY(-50%);
   width: 500px;
   height: 500px;
-  flex-shrink: 0;
+  z-index: 1;
 }
+
 .heading-line {
   display: flex;
   align-items: center;
@@ -62,24 +66,33 @@ body {
 
 .buttons {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   margin-top: 1rem;
 }
 
 .btn {
-  background-color: #ddd;
-  color: #333;
-  border: none;
-  padding: 0.8rem 2rem;
-  border-radius: 999px;
-  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  width: 80px;
+  padding: 0 2rem;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid #9333ea;
+  color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
   text-decoration: none;
-  transition: background-color 0.3s ease;
+  will-change: transform;
 }
 
 .btn:hover {
-  background-color: #9333ea;
-  color: white;
+  transform: perspective(600px) rotateX(4deg) rotateY(-4deg) scale(1.05);
+  box-shadow: 0 10px 25px rgba(147, 51, 234, 0.3);
+  color: #9333ea;
 }
 
 .fill-hover {
@@ -93,4 +106,86 @@ body {
   -webkit-text-fill-color: transparent;
 
   display: inline-block;
+}
+
+/* === Overview Section Styling === */
+.overview-section {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  position: relative;
+}
+
+.overview-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.overview-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+  max-width: 50%;
+}
+
+.overview-right {
+  flex: 1;
+  position: sticky;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.subheading {
+  color: #aaa;
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+
+.overview-heading {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.overview-description {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #ddd;
+  margin-bottom: 2rem;
+  max-width: 95%;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 500px;
+}
+
+.card {
+  height: 150px;
+  background: rgba(255, 255, 255, 0.029);
+  border: 2px solid #9333ea;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+  cursor: pointer;
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+
+.card:hover {
+  transform: perspective(600px) rotateX(4deg) rotateY(-4deg) scale(1.05);
+  box-shadow: 0 10px 25px rgba(147, 51, 234, 0.3);
 }

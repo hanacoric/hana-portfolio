@@ -61,3 +61,21 @@ function animateTextFill(element, forward = true) {
 
   requestAnimationFrame(step);
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("fade-in-up");
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  document.querySelectorAll(".card").forEach((card, index) => {
+    card.style.transitionDelay = `${index * 0.2}s`;
+    observer.observe(card);
+  });
+});
