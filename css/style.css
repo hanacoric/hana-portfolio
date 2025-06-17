@@ -164,7 +164,7 @@ body {
 .cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  gap: 3rem;
   max-width: 500px;
 }
 
@@ -188,4 +188,25 @@ body {
 .card:hover {
   transform: perspective(600px) rotateX(4deg) rotateY(-4deg) scale(1.05);
   box-shadow: 0 10px 25px rgba(147, 51, 234, 0.3);
+}
+
+/* === Tech Section Styling === */
+
+.tech-wrapper {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+.tech-section {
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 5rem;
+  width: 100%;
+}
+
+.tech-balls-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 150px);
+  gap: 30px;
+  justify-content: flex-start;
 }

@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { createStars } from "./stars-background.js";
 import { Eye } from "./eye.js";
+import { createTechBalls } from "./balls.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   if ("paintWorklet" in CSS) {
@@ -23,7 +24,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   renderer.setSize(container.clientWidth, container.clientHeight);
   container.appendChild(renderer.domElement);
 
-  // ✨ Add stars to scene
+  // Create stars and add them to the scene
   const stars = createStars(scene);
 
   function animate() {
@@ -78,4 +79,8 @@ document.addEventListener("DOMContentLoaded", () => {
     card.style.transitionDelay = `${index * 0.2}s`;
     observer.observe(card);
   });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  createTechBalls();
 });
