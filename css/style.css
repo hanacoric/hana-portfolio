@@ -281,6 +281,14 @@ body {
 }
 
 @media screen and (max-width: 1024px) {
+  .fill-hover {
+    background: none;
+    background-clip: initial;
+    background-clip: initial;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: inherit;
+    color: #9333ea;
+  }
   body {
     padding: 0 40px;
   }
@@ -372,6 +380,13 @@ body {
 }
 
 @media screen and (max-width: 600px) {
+  .fill-hover {
+    background: none;
+    background-clip: initial;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: inherit;
+    color: #9333ea;
+  }
   body {
     padding: 0 20px;
   }
