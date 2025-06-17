@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     el.addEventListener("mouseenter", () => animateTextFill(el, true));
     el.addEventListener("mouseleave", () => animateTextFill(el, false));
   });
+  await CSS.paintWorklet.addModule("./css/noise-pattern.js");
 });
 
 //animates the text from left to right when hovered
