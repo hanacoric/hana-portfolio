@@ -279,3 +279,163 @@ body {
   font-size: 1rem;
   color: #ccc;
 }
+
+@media screen and (max-width: 1024px) {
+  body {
+    padding: 0 40px;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 3rem 0;
+    gap: 2rem;
+  }
+
+  .intro {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .animated-heading {
+    font-size: 3rem;
+  }
+
+  .subtitle {
+    font-size: 1.4rem;
+  }
+
+  .buttons {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .eye-container {
+    display: none;
+  }
+
+  .overview-container {
+    justify-content: center;
+  }
+
+  .overview-left {
+    max-width: 100%;
+  }
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .card {
+    width: 200px;
+  }
+
+  .tech-section {
+    justify-content: center;
+  }
+
+  .tech-balls-grid {
+    grid-template-columns: repeat(5, 80px);
+    justify-content: center;
+    gap: 100px;
+  }
+
+  .projects-container {
+    justify-content: center;
+  }
+
+  .project-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .project-card {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .projects-heading {
+    font-size: 2.5rem;
+  }
+
+  .projects-description {
+    max-width: 95%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    padding: 0 20px;
+  }
+
+  .animated-heading {
+    font-size: 2.2rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .btn {
+    width: auto;
+    font-size: 1rem;
+    height: 50px;
+    padding: 0 1.5rem;
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+  }
+
+  .card {
+    width: 90%;
+    font-size: 1.2rem;
+    height: auto;
+    padding: 1.5rem;
+  }
+
+  .tech-wrapper {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .tech-section {
+    justify-content: center;
+    display: flex;
+    width: 100%;
+  }
+
+  .tech-balls-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    gap: 16px;
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .overview-heading {
+    font-size: 2.5rem;
+  }
+
+  .overview-description {
+    font-size: 1rem;
+  }
+
+  .project-card {
+    width: 100%;
+    max-width: 100%;
+  }
+}
