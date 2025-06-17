@@ -156,9 +156,9 @@ body {
 .overview-description {
   font-size: 1.2rem;
   line-height: 1.8;
-  color: #ddd;
+  color: #ccc;
   margin-bottom: 2rem;
-  max-width: 95%;
+  max-width: 90%;
 }
 
 .cards {
@@ -237,7 +237,8 @@ body {
   font-size: 1.2rem;
   color: #ccc;
   margin-bottom: 2rem;
-  max-width: 80%;
+  max-width: 90%;
+  line-height: 2rem;
 }
 
 .project-card {
